@@ -12,23 +12,41 @@
       <ion-title size="large">Groceries</ion-title>
     </ion-toolbar>
   </ion-header>
+  
   <ion-list>
-    <ion-item>
-      <ion-label>Sugar Cookies</ion-label>
+    <ion-item *ngFor="let item of items">
+      {{item}}
     </ion-item>
-    <ion-item>
-      <ion-label>Bananas</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Eggs</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Chickens</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Ground Beef</ion-label>
-    </ion-item>
-  </ion-list>
+ </ion-list>
+
+
+  <ion-fab slot="fixed" horizontal="right" vertical="bottom">
+    <ion-fab-button size="small" id ="add">
+      <ion-icon (click)="addItem()" name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-button id="addItem">Add Item</ion-button>
+  <ion-alert
+    trigger="addItem"
+    header="Please enter the item to add:"
+    [buttons]="addButtons"
+    [inputs]="addInputs"
+  ></ion-alert>
+
+  <ion-button id="delete">Delete item</ion-button>
+  <ion-alert
+    trigger="delete"
+    header="Please enter the item to delete:"
+    [buttons]="deleteButtons"
+    [inputs]="deleteInputs"
+  ></ion-alert>
 
 
 </ion-content>
+
+
+
+
+
